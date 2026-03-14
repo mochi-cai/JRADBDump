@@ -1,8 +1,7 @@
 # 目的
 過去10年分のレースの1着、2着、3着の馬の傾向を調査
-https://race.netkeiba.com/race/shutuba.html?race_id=202606020511&rf=race_list
-　の出走馬から5着以内の候補を予測
-レース結果と下記の相関関係があるかを調査、ある場合の法則を調査
+https://race.netkeiba.com/race/shutuba.html?race_id=202606020611
+の出走馬から5着以内の候補を予測レース結果と下記の相関関係があるかを調査、ある場合の法則を調査
 ・過去成績（開催競馬場、馬場状態、天候、レースのグレード、距離、周回、枠番、馬番、騎手、斤量、馬体重）と当日レースの成績比較
 ・天候、馬場状態の成績
 ・開催競馬場の成績
@@ -13,7 +12,7 @@ https://race.netkeiba.com/race/shutuba.html?race_id=202606020511&rf=race_list
 ・距離適性と成績
 
 # 解析結果
-./解析/解析結果.アネモネ.mdに出力して
+./解析/予想スプリングS.mdに出力して
 
 # DB情報
 SQLServer接続情報
@@ -103,7 +102,8 @@ SELECT TOP (1000) [idx]
       ,[delflg]
   FROM [hr01].[dbo].[wk_org]
 WHERE
-    rname LIKE 'アネモネ%'
+   (rname LIKE '%スプリングＳ%'
+OR rname LIKE '%スプリングステークス%')
 AND rresult IN (1,2,3)
 ORDER BY
     rdate DESC, rresult
